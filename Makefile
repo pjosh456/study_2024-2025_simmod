@@ -2,7 +2,13 @@ COURSE =
 
 .PHONY: all clean
 
-all: help
+#ifndef COURSE
+#$(error "Usage: make COURSE=<course_name>")
+#else
+#include config/course/$(COURSE)
+#endif
+
+all: prepare
 
 help:
 	@echo 'Usage:'
@@ -20,7 +26,3 @@ list:	## List of courses
 prepare:	## Generate directories structure
 	@./config/script/prepare
 	@touch prepare
-
-submodule:	## Update submules
-	git submodule update --init --recursive
-	git submodule foreach 'git fetch origin; git checkout $$(git rev-parse --abbrev-ref HEAD); git reset --hard origin/$$(git rev-parse --abbrev-ref HEAD); git submodule update --recursive; git clean -dfx'
