@@ -2,7 +2,7 @@
 ## Front matter
 lang: ru-RU
 title: Лабораторная работа 6
-subtitle:  Модель «хищник–жертва
+subtitle:  Модель M|M|1|
 author:
   - Алади П. Ч.
 institute:
